@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Grammar Guru</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous">
+  </script>
+  <script src="js/app.js">
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+
+    <div id="login" style="display: none;">
+      <div class="login-title">
+        <h1 class="login-title">Word Game</h1>
+      </div>
+      <form id="login-form" class="pull-left">
+        <h3 class="login-label">Login To Play!</h3>
+        <div>
+          <div>
+            <div class="form-group login_username">
+              <label for="lg_username" class="sr-only">Username</label>
+              <input type="text" class="form-control" id="login_username" placeholder="username@email.com">
+            </div>
+            <div class="form-group login_password">
+              <label for="lg_password" class="sr-only">Password</label>
+              <input type="password" class="form-control" id="login_password" placeholder="password">
+            </div>
+          </div>
+          <button type="submit" onclick="login(event)" class="btn btn-primary btn-sm">Login
+            <i class="glyphicon glyphicon-chevron-right"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div id="home" class="off" style="display: none;">
+      <div class="logout">
+        <span class="username"></span>
+        <span class="btn btn-danger btn-sm" id="logout" onclick="logout()">Logout</span>
+      </div>
+
+      <div class="well well-sm">
+        <form class="form-inline">
+          <div class="form-group">
+            <label class="font" for="fontField">Font</label>
+            <select class="form-control" id="fontField" onChange="getFont()">
+            </select>
+          </div>
+
+          <div class=" form-group">
+            <label class="levelLabel" for="levelField">Level</label>
+            <select class="form-control" id="levelField">
+            </select>
+          </div>
+
+          <div class="word form-group">
+            <label class="color-label form-control" for="wordColor">Word</label>
+            <input class="form-control color" type="color" id="wordColor" />
+          </div>
+
+          <div class="form-group">
+            <label class="color-label form-control" for="guessColor">Guess</label>
+            <input class="form-control color" type="color" id="guessColor" />
+          </div>
+
+          <div class="form-group test">
+            <label class="color-label form-control fore" for="foreColor">Fore</label>
+            <input class="form-control color" type="color" id="foreColor" />
+          </div>
+
+          <span class="btn btn-primary btn-sm" id="saveSettings" onclick="saveSettings()">Save Settings</span>
+
+          <span class="pull-right btn btn-success btn-sm" id="newGame" onclick="newGame()">New Game</span>
+        </form>
+      </div>
+
+      <div class="well well-sm table">
+        <table id="table">
+          <tbody id='tableBody'>
+            <tr id="tableHead">
+              <th class="header level">Level</th>
+              <th class="header phrase">Phrase</th>
+              <th class="header remaining">Remaining</th>
+              <th class="header answer">Answer</th>
+              <th class="header status">Status</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="well well-sm" id="gameView" style="display: none;">
+      <div class="form-group">
+        <form class="form-inline">
+          <span id="remaining"></span>
+          <input class="form-control" type="text" id="textField">
+          <span class="btn btn-primary btn-sm" id="guess-btn">Guess</span>
+          <span class="pull-right btn btn-danger btn-xs" id="close">X</span>
+        </form>
+      </div>
+
+      <div class="pull-right" id="guesses">
+      </div>
+
+      <div id="guess">
+      </div>
+    </div>
+
+    <div id="userList" style="display: none;">
+      <div class="logout">
+        <span class="username"></span>
+        <span class="btn btn-danger btn-sm" id="logout" onclick="logout()">Logout</span>
+      </div>
+
+      <div class="add">
+        <span class="addUser">Add a new user</span>
+        <span class="btn btn-success btn-xs" id="add" onclick="newUser()">+</span>
+      </div>
+
+      <div class="well well-sm userList" id="a">
+        <table id="userList">
+          <tbody id='userListBody'>
+            <tr id="userListHead">
+              <th class="userListHeader first">First Name</th>
+              <th class="userListHeader last">Last Name</th>
+              <th class="userListHeader email">Email</th>
+              <th class="userListHeader role">Role</th>
+              <th class="userListHeader status">Status</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="well well-sm" id="userView" style="display: none;">
+      <div>
+        <div class="user">First Name</div>
+        <div class="user">Last Name</div>
+        <div class="user">Email</div>
+        <div class="user">Role</div>
+        <div class="user">Status</div>
+      </div>
+
+      <form class="form-inline">
+        <input class="user" type="text" class="form-control" id="first" placeholder="first name">
+        <input class="user" type="text" class="form-control" id="last" placeholder="last name">
+        <input class="user" type="text" class="form-control" id="email" placeholder="email">
+
+        <div class="role-radio">
+          <input class="role radio left" type="radio" class="form-control" id="role-user" name="role" value="USER">
+          <label class="radio" for="role-user">USER</label>
+          <input class="role radio right" type="radio" class="form-control" id="role-admin" name="role" value="ADMIN">
+          <label class="radio" for="role-admin">ADMIN</label>
+        </div>
+
+        <div class="status-radio">
+          <input class="status radio left" type="radio" class="form-control" id="enabled" name="status" value="true">
+          <label class="radio" for="enabled">Enabled</label>
+          <input class="status radio right" type="radio" class="form-control" id="disabled" name="status" value="false">
+          <label class="radio" for="disabled">Disabled</label>
+        </div>
+
+        <div class=pull-right>
+          <span class="updateUser">Update user</span>
+          <span class="btn btn-success btn-xs" id="update">+</span>
+          <span class="cancel">Cancel</span>
+          <span class="btn btn-danger btn-xs" id="cancel" onclick="cancel()">X</span>
+        </div>
+      </form>
+    </div>
+
+    <div class="well well-sm" id="newUserView" style="display: none;">
+      <div>
+        <div class="new">First Name</div>
+        <div class="new">Last Name</div>
+        <div class="new">Email</div>
+        <div class="new">Password</div>
+        <div class="new">Role</div>
+        <div class="new">Status</div>
+      </div>
+
+      <form class="form-inline">
+        <input class="new" type="text" class="form-control" id="newFirst" placeholder="first name">
+        <input class="new" type="text" class="form-control" id="newLast" placeholder="last name">
+        <input class="new" type="text" class="form-control" id="newEmail" placeholder="email">
+        <input class="new" type="text" class="form-control" id="newPassword" placeholder="password">
+
+        <div class="new-role-radio">
+          <input class="newRole radio left" type="radio" class="form-control" id="new-role-user" name="role" value="USER">
+          <label class="radio" for="new-role-user">USER</label>
+          <input class="newRole radio right" type="radio" class="form-control" id="new-role-admin" name="role" value="ADMIN">
+          <label class="radio" for="new-role-admin">ADMIN</label>
+        </div>
+
+        <div class="new-status-radio">
+          <input class="newStatus radio left" type="radio" class="form-control" id="new-enabled" name="status" value="true">
+          <label class="radio" for="new-enabled">Enabled</label>
+          <input class="newStatus radio right" type="radio" class="form-control" id="new-disabled" name="status" value="false">
+          <label class="radio" for="new-disabled">Disabled</label>
+        </div>
+
+        <div align="right">
+          <span class="updateUser">Add user</span>
+          <span class="btn btn-success btn-xs" id="addNew" onclick="addUser()">+</span>
+          <span class="cancel">Cancel</span>
+          <span class="btn btn-danger btn-xs" id="new-cancel" onclick="cancel()">X</span>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</body>
+
+</html>

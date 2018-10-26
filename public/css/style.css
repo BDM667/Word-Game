@@ -1,0 +1,278 @@
+body {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1.login-title {
+  color: blue;
+  font-size: 6em;
+  font-family: "Lobster", cursive;
+}
+
+h3.login-label {
+  color: yellow;
+}
+
+div.logout {
+  text-align: right;
+  margin-bottom: 1.5em;
+}
+
+span.username {
+  display: inline-block;
+  margin-right: 2.5em;
+  color: yellow;
+  font-size: 1.25em;
+}
+
+div.add {
+  text-align: right;
+  margin-bottom: 1.5em;
+}
+
+span.addUser {
+  display: inline-block;
+  margin-right: 0.5em;
+  color: rgb(83, 217, 250);
+  font-size: 1.25em;
+}
+
+span#add {
+  font-size: 1em;
+}
+
+div.login_username {
+  width: 20em;
+}
+
+div.login_password {
+  width: 20em;
+}
+
+.container {
+  margin-top: 1em;
+}
+
+input.form-control[type="color"] {
+  width: 4em;
+}
+
+label.color-label {
+  position: relative;
+  left: 0.3em;
+  margin-bottom: 0;
+  background: #f5f5f5;
+  border-right: none;
+  border-radius: 4px 0px 0px 4px;
+  font-weight: normal;
+}
+
+#foreColor {
+  position: relative;
+  right: 0.25em;
+}
+
+.color {
+  border-radius: 0px 4px 4px 0px;
+}
+
+select#fontField {
+  width: 12em;
+}
+
+select#levelField {
+  width: 10em;
+}
+
+label.font {
+  margin-right: 1em;
+}
+
+label.levelLabel {
+  margin-right: 1em;
+}
+
+div.word {
+  margin-left: 1em;
+}
+
+.level {
+  width: 10em;
+}
+
+.phrase {
+  width: 40em;
+}
+
+.remaining {
+  width: 15em;
+}
+
+.answer {
+  width: 35em;
+}
+
+.status {
+  width: 15em;
+}
+
+.first {
+  width: 25em;
+}
+
+.last {
+  width: 25em;
+}
+
+.email {
+  width: 25em;
+}
+
+.role {
+  width: 25em;
+}
+
+userLost.status {
+  width: 25em;
+}
+
+#remaining {
+  margin-right: 1em;
+}
+
+#textField {
+  width: 4em;
+}
+
+#guesses {
+  margin-right: 1em;
+}
+
+.guess {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 2em;
+  padding: 0em 0.1em;
+  margin: 0em 0.05em;
+}
+
+.guessWord {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 4em;
+  padding: 0em 0.1em;
+  margin: 0.5em 0.05em;
+}
+
+div.table {
+  opacity: 0.85;
+}
+
+div.userList {
+  opacity: 0.85;
+}
+
+.list {
+  padding-bottom: 0.5em;
+}
+
+tr#userListHead {
+  color: blue;
+  text-decoration-line: underline;
+}
+
+tr.clickable:hover {
+  cursor: pointer;
+}
+
+.phraseDiv {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  padding: 0em 0.1em;
+  margin: 0.4em 0.1em;
+}
+
+div#userView {
+  padding: 1.5em 1em;
+}
+
+div.user {
+  display: inline-block;
+  width: 12em;
+  font-weight: bold;
+}
+
+input.user {
+  width: 12em;
+}
+
+input.radio {
+  width: 1em;
+}
+
+input.left {
+  margin-left: 0.5em;
+}
+
+div.role-radio {
+  display: inline-block;
+  border: solid;
+  border-width: thin;
+  width: 12em;
+}
+
+div.status-radio {
+  display: inline-block;
+  border: solid;
+  border-width: thin;
+  width: 14em;
+}
+
+label.radio {
+  margin-right: 1em;
+  font-weight: normal;
+}
+
+.updateUser {
+  font-weight: bold;
+  margin-right: 0.5em;
+}
+
+.cancel {
+  font-weight: bold;
+  margin: 0 0.5em 0 1em;
+}
+
+div.new {
+  display: inline-block;
+  width: 13em;
+  font-weight: bold;
+}
+
+input.new {
+  width: 13em;
+}
+
+div.new-role-radio {
+  display: inline-block;
+  border: solid;
+  border-width: thin;
+  width: 12em;
+}
+
+div.new-status-radio {
+  display: inline-block;
+  border: solid;
+  border-width: thin;
+  width: 14em;
+}
+
+.new-role-radio {
+  margin-bottom: 1em;
+}
+
+.new-status-radio {
+  margin-bottom: 1em;
+}
